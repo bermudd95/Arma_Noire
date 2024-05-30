@@ -1,9 +1,30 @@
 import { useRef } from "react";
-import sendEmail from "../Server/Email";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
 	const form = useRef();
+	const sendEmail = (e) => {
+		e.preventDefault();
 
+		emailjs
+			.sendForm(
+				"service_u2f5wlu",
+				"template_oq0mgol",
+				form.current,
+				{
+					publicKey: "dkSCkT9G1nrflBiqD",
+				},
+			)
+			.then(
+				(result) => {
+					console.log("SUCCESS!", result.text);
+					form.current.reset();
+				},
+				(error) => {
+					console.log("FAILED...", error.text);
+				},
+			);
+	};
 	return (
 		<div
 			id="Contact"
@@ -16,12 +37,12 @@ const ContactForm = () => {
 			<form
 				ref={form}
 				onSubmit={sendEmail}
-				className="bg-gray-800 rounded-md p-6 shadow-md lg:mb-4 m-4 text-white"
+				className="bg-gray-800 rounded-md p-6 shadow-md lg:mb-4 m-4"
 			>
 				<div className="flex flex-col space-y-4">
 					<label
 						htmlFor="user_name"
-						className="text-lg font-semibold"
+						className="text-lg font-semibold text-white"
 					>
 						Name:
 					</label>
@@ -35,7 +56,7 @@ const ContactForm = () => {
 
 					<label
 						htmlFor="user_email"
-						className="text-lg font-semibold"
+						className="text-lg font-semibold text-white"
 					>
 						Email:
 					</label>
@@ -49,7 +70,7 @@ const ContactForm = () => {
 
 					<label
 						htmlFor="subject"
-						className="text-lg font-semibold"
+						className="text-lg font-semibold text-white"
 					>
 						Subject:
 					</label>
@@ -63,7 +84,7 @@ const ContactForm = () => {
 
 					<label
 						htmlFor="message"
-						className="text-lg font-semibold"
+						className="text-lg font-semibold text-white"
 					>
 						Message:
 					</label>
@@ -86,5 +107,4 @@ const ContactForm = () => {
 		</div>
 	);
 };
-
 export default ContactForm;

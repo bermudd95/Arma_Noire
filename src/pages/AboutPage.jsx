@@ -105,7 +105,7 @@ const AboutPage = () => {
 						{
 							title: "Experience You Can Trust",
 							content:
-								"With [X years] of industry experience, our team brings unparalleled expertise to every project we undertake. From small businesses to large corporations, we have successfully secured a diverse range of clients, earning their trust through our proven track record of reliability and professionalism.",
+								"Our team delivers unparalleled expertise to every project we undertake. From small businesses to large corporations, we have successfully secured a diverse range of clients, earning their trust through our proven track record of reliability and professionalism.",
 						},
 						{
 							title: "Tailored Solutions for Your Needs",

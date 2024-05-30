@@ -1,13 +1,34 @@
 import { useState, useRef } from "react";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
-import sendEmail from "../Server/Email";
+import emailjs from "@emailjs/browser";
 
 const Navigation = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const form = useRef();
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const sendEmail = (e) => {
+		e.preventDefault();
 
+		emailjs
+			.sendForm(
+				"service_u2f5wlu",
+				"template_oq0mgol",
+				form.current,
+				{
+					publicKey: "dkSCkT9G1nrflBiqD",
+				},
+			)
+			.then(
+				(result) => {
+					console.log("SUCCESS!", result.text);
+					form.current.reset();
+				},
+				(error) => {
+					console.log("FAILED...", error.text);
+				},
+			);
+	};
 	const toggleMenu = () => {
 		setIsOpen(!isOpen);
 	};
@@ -191,5 +212,4 @@ const Navigation = () => {
 		</div>
 	);
 };
-
 export default Navigation;
