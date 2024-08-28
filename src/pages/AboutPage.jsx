@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Guard2 from "../images/Arma-Noire Guard.jpg";
 import Guard3 from "../images/Arma Noire Guard Group3.jpg";
-
+import Logo from "../images/Arma noire logo black.jpg";
 import "tailwindcss/tailwind.css";
 
 const AboutPage = () => {
 	const [loaded, setLoaded] = useState(false);
 	const sectionRefs = useRef([]);
-	const images = [Guard2, Guard3];
+	const images = [Guard2, Logo, Guard3];
 	const [currentImageIndex, setCurrentImageIndex] =
 		useState(0);
 	const [heroVisible, setHeroVisible] = useState(true);
@@ -82,15 +82,17 @@ const AboutPage = () => {
 						Solutions
 					</p>
 				</div>
-				<img
-					src={images[currentImageIndex]}
-					alt="Background"
-					className={`transition-opacity duration-1000 ${
-						heroVisible
-							? "opacity-100"
-							: "opacity-0"
-					}`}
-				/>
+				<div className="flex justify-center items-center h-full w-full">
+					<img
+						src={images[currentImageIndex]}
+						alt="Background"
+						className={`transition-opacity duration-1000 max-h-[500px] ${
+							heroVisible
+								? "opacity-100"
+								: "opacity-0"
+						}`}
+					/>
+				</div>
 			</section>
 
 			<section
