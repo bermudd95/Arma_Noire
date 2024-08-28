@@ -1,30 +1,38 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
 	const form = useRef();
+	const [showModal, setShowModal] = useState(false);
+
 	const sendEmail = (e) => {
 		e.preventDefault();
 
 		emailjs
 			.sendForm(
-				"service_u2f5wlu",
-				"template_oq0mgol",
+				"service_deidutk",
+				"template_19ktuz5",
 				form.current,
 				{
-					publicKey: "dkSCkT9G1nrflBiqD",
+					publicKey: "j6sX6wKtc42GzSQ3e",
 				},
 			)
 			.then(
 				(result) => {
 					console.log("SUCCESS!", result.text);
 					form.current.reset();
+					setShowModal(true);
 				},
 				(error) => {
 					console.log("FAILED...", error.text);
 				},
 			);
 	};
+
+	const closeModal = () => {
+		setShowModal(false);
+	};
+
 	return (
 		<div
 			id="Contact"
@@ -104,7 +112,28 @@ const ContactForm = () => {
 					</button>
 				</div>
 			</form>
+
+			{showModal && (
+				<div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+					<div className="bg-white rounded-lg p-6 text-center">
+						<h2 className="text-2xl font-bold mb-4">
+							Thank You!
+						</h2>
+						<p className="mb-4">
+							Your message has been sent
+							successfully.
+						</p>
+						<button
+							onClick={closeModal}
+							className="bg-yellow-500 text-black px-4 py-2 rounded-md hover:bg-yellow-600"
+						>
+							Close
+						</button>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
+
 export default ContactForm;

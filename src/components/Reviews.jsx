@@ -6,7 +6,7 @@ import {
 	addDoc,
 	getDocs,
 } from "firebase/firestore";
-import FirebaseConfigSecret from "../server/FirebaseConfigSecret";
+import FirebaseConfigSecret from "../../FirebaseConfigSecret";
 
 const firebaseConfig = {
 	apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
