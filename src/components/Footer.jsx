@@ -7,7 +7,7 @@ const Footer = () => {
 		<div className="pb-3 bg-amber-500">
 			<div className="flex justify-evenly">
 				<FaSquareXTwitter className="w-10 h-20" />
-				<p className="pt-10 font-semibold">
+				<p className="pt-7 font-semibold">
 					Copyright 2023 by Arma Noire
 				</p>
 				<FaSquareInstagram className="w-10 h-20" />

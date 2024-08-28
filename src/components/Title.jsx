@@ -3,11 +3,11 @@ import Navigation from "./Navigation";
 
 const Title = () => {
 	return (
-		<div className="h-full md:pt-5 md:pb-3 py-3 mx-auto bg-amber-500">
+		<div className="h-full md:pt-5 md:pb-3 py-4 mx-auto bg-amber-500">
 			<div className="flex justify-evenly">
 				<h1
 					id="Home"
-					className="md:hidden w-full font-bold text-3xl pt-2 px-4"
+					className="md:hidden w-full font-bold text-3xl pt-4 px-4"
 				>
 					Arma Noire
 				</h1>
