@@ -7,7 +7,7 @@ import ContactForm from "../components/Contact Form";
 
 const HomePage = () => {
 	return (
-		<div className="h-full bg-black min-h-screen">
+		<div className="font-cinzel h-full bg-black min-h-screen">
 			<Title />
 			<AboutPage />
 			<ReviewsPage />
