@@ -7,7 +7,7 @@ const Title = () => {
 			<div className="flex justify-evenly">
 				<h1
 					id="Home"
-					className="md:hidden w-full font-bold text-3xl pt-4 px-4"
+					className="md:hidden w-full whitespace-nowrap font-bold text-3xl pt-6 px-6"
 				>
 					Arma Noire
 				</h1>
